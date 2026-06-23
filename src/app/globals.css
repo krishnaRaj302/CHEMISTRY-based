@@ -1,0 +1,300 @@
+@import "tailwindcss";
+
+@theme {
+  --font-poppins: var(--font-poppins), sans-serif;
+  --font-inter: var(--font-inter), sans-serif;
+  --font-space: var(--font-space-grotesk), monospace;
+  
+  --color-primary-navy: #0B2545;
+  --color-lab-blue: #1976D2;
+  --color-lab-cyan: #4FC3F7;
+  --color-lab-green: #00C853;
+  --color-soft-white: #F8FBFD;
+}
+
+:root {
+  --primary-navy: #0B2545;
+  --lab-blue: #1976D2;
+  --lab-cyan: #4FC3F7;
+  --lab-green: #00C853;
+  --soft-white: #F8FBFD;
+  --bg-color: #F8FBFD;
+  --text-color: #0B2545;
+  --card-bg: rgba(255, 255, 255, 0.45);
+  --card-border: rgba(25, 118, 210, 0.15);
+  --grid-color: rgba(25, 118, 210, 0.05);
+}
+
+.dark {
+  --bg-color: #030A14;
+  --text-color: #E2F1FF;
+  --card-bg: rgba(11, 37, 69, 0.3);
+  --card-border: rgba(79, 195, 247, 0.2);
+  --grid-color: rgba(79, 195, 247, 0.04);
+}
+
+/* ─── Reset ─── */
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  font-family: var(--font-inter);
+  transition: background-color 0.5s ease, color 0.5s ease;
+  overflow-x: hidden;
+}
+
+/* ─── Glassmorphism ─── */
+.glass-card {
+  background: var(--card-bg);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid var(--card-border);
+  box-shadow: 0 8px 32px 0 rgba(11, 37, 69, 0.06);
+}
+
+.dark .glass-card {
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.35);
+}
+
+.glass-nav {
+  background: rgba(248, 251, 253, 0.75);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(25, 118, 210, 0.1);
+}
+
+.dark .glass-nav {
+  background: rgba(3, 10, 20, 0.75);
+  border-bottom: 1px solid rgba(79, 195, 247, 0.1);
+}
+
+/* ─── Scientific Grid ─── */
+.scientific-grid {
+  background-image: 
+    linear-gradient(to right, var(--grid-color) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--grid-color) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+
+/* ─── Custom Scrollbar ─── */
+::-webkit-scrollbar {
+  width: 7px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg-color);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--lab-blue);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--lab-cyan);
+}
+
+/* ─── Text Gradients ─── */
+.text-gradient-cyan-blue {
+  background: linear-gradient(135deg, #4FC3F7 0%, #1976D2 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.text-gradient-navy-blue {
+  background: linear-gradient(135deg, #0B2545 0%, #1976D2 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.dark .text-gradient-navy-blue {
+  background: linear-gradient(135deg, #E2F1FF 0%, #4FC3F7 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ─── Neon Lines ─── */
+.neon-line-blue {
+  box-shadow: 0 0 8px #1976D2, 0 0 16px #4FC3F7;
+}
+
+.neon-line-green {
+  box-shadow: 0 0 8px #00C853, 0 0 18px #00C853;
+}
+
+/* ─── Vapor Animation ─── */
+@keyframes vapor {
+  0%   { transform: translateY(0) scale(1) rotate(0deg); opacity: 0.1; filter: blur(6px); }
+  50%  { transform: translateY(-50px) scale(1.2) rotate(180deg); opacity: 0.3; filter: blur(3px); }
+  100% { transform: translateY(-100px) scale(1.6) rotate(360deg); opacity: 0; filter: blur(10px); }
+}
+
+.vapor-particle {
+  animation: vapor 7s infinite ease-out;
+}
+
+/* ─── Bubble Animation ─── */
+@keyframes bubble-up {
+  0%   { transform: translateY(100%) scale(0.8); opacity: 0; }
+  20%  { opacity: 0.6; }
+  80%  { opacity: 0.6; }
+  100% { transform: translateY(-120%) scale(1.2); opacity: 0; }
+}
+
+.bubble {
+  animation: bubble-up 5s infinite linear;
+}
+
+/* ─── Spin slow ─── */
+@keyframes spin-slow {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+.animate-spin-slow {
+  animation: spin-slow 12s linear infinite;
+}
+
+/* ─── Gradient Border ─── */
+.gradient-border {
+  position: relative;
+  background: var(--card-bg);
+  border: 1px solid transparent;
+  background-clip: padding-box;
+}
+
+.gradient-border::before {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  background: linear-gradient(135deg, rgba(79,195,247,0.4), rgba(25,118,210,0.15), rgba(0,200,83,0.2));
+  z-index: -1;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.gradient-border:hover::before {
+  opacity: 1;
+}
+
+/* ─── Magnetic Button ─── */
+.magnetic-btn {
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.magnetic-btn::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at var(--mx, 50%) var(--my, 50%), rgba(255,255,255,0.15) 0%, transparent 60%);
+  opacity: 0;
+  transition: opacity 0.3s;
+  pointer-events: none;
+}
+
+.magnetic-btn:hover::after {
+  opacity: 1;
+}
+
+/* ─── Section Reveal ─── */
+@keyframes reveal-up {
+  from { opacity: 0; transform: translateY(30px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.reveal-up {
+  animation: reveal-up 0.7s ease forwards;
+}
+
+/* ─── Parallax Layer ─── */
+.parallax-layer {
+  will-change: transform;
+}
+
+/* ─── Light reflection on glass ─── */
+.glass-shine {
+  position: relative;
+  overflow: hidden;
+}
+
+.glass-shine::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    135deg,
+    rgba(255,255,255,0) 0%,
+    rgba(255,255,255,0.04) 40%,
+    rgba(255,255,255,0.08) 50%,
+    rgba(255,255,255,0.04) 60%,
+    rgba(255,255,255,0) 100%
+  );
+  transform: rotate(-45deg) translateX(-100%);
+  transition: transform 0.8s ease;
+  pointer-events: none;
+}
+
+.glass-shine:hover::before {
+  transform: rotate(-45deg) translateX(100%);
+}
+
+/* ─── Animated Gradient Border on focus ─── */
+input:focus,
+textarea:focus {
+  outline: none;
+}
+
+/* ─── Lab line animation for Activities ─── */
+@keyframes flow-right {
+  from { transform: translateX(-100%); }
+  to   { transform: translateX(300%); }
+}
+
+.liquid-flow {
+  animation: flow-right 3s linear infinite;
+}
+
+/* ─── Floating scientific icons ─── */
+@keyframes float-icon {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  33%       { transform: translateY(-8px) rotate(3deg); }
+  66%       { transform: translateY(-4px) rotate(-3deg); }
+}
+
+.float-icon {
+  animation: float-icon 4s ease-in-out infinite;
+}
+
+/* ─── Neon pulse ring ─── */
+@keyframes neon-pulse {
+  0%, 100% { box-shadow: 0 0 5px #4FC3F7, 0 0 10px #4FC3F7; }
+  50%       { box-shadow: 0 0 15px #4FC3F7, 0 0 30px #4FC3F7, 0 0 5px #4FC3F7; }
+}
+
+.neon-pulse {
+  animation: neon-pulse 2s ease-in-out infinite;
+}
+
+/* ─── Selection color ─── */
+::selection {
+  background: rgba(79, 195, 247, 0.25);
+  color: #0B2545;
+}
+
+.dark ::selection {
+  background: rgba(79, 195, 247, 0.3);
+  color: #E2F1FF;
+}
