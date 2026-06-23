@@ -60,9 +60,7 @@ export default function Navbar() {
           >
             <Atom className="w-5 h-5 sm:w-6 sm:h-6 text-lab-blue dark:text-lab-cyan animate-spin-slow group-hover:rotate-180 transition-transform duration-700 flex-shrink-0" />
             <span className="text-xs sm:text-sm md:text-base lg:text-lg truncate">
-              <span className="hidden sm:inline">NANDANA</span>
-              <span className="sm:hidden">ND</span>
-              <span className="text-lab-blue dark:text-lab-cyan">.KS</span>
+              NANDANA<span className="text-lab-blue dark:text-lab-cyan">.KS</span>
             </span>
           </a>
 
