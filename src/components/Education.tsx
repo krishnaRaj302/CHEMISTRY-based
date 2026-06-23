@@ -89,10 +89,10 @@ export default function Education() {
           </motion.div>
 
           {/* Timeline */}
-          <div className="relative max-w-3xl mx-auto w-full px-2 sm:px-0">
+          <div className="relative max-w-3xl mx-auto w-full">
 
             {/* Animated tube spine */}
-            <div className="absolute left-3 sm:left-6 md:left-1/2 -translate-x-[2.5px] top-4 bottom-4 w-[5px] bg-slate-200 dark:bg-slate-800 rounded-full overflow-hidden">
+            <div className="absolute left-[6px] sm:left-3 md:left-1/2 md:-translate-x-1/2 top-6 bottom-4 w-1 bg-slate-200 dark:bg-slate-800 rounded-full overflow-hidden">
               <motion.div
                 style={{ scaleY: pathLength }}
                 className="w-full h-full origin-top bg-gradient-to-b from-lab-cyan via-lab-blue to-lab-green shadow-[0_0_10px_#4FC3F7]"
@@ -100,7 +100,7 @@ export default function Education() {
             </div>
 
             {/* Milestones */}
-            <div className="flex flex-col gap-14 md:gap-16">
+            <div className="flex flex-col gap-8 sm:gap-12 md:gap-16">
               {milestones.map((milestone, idx) => {
                 const isEven = idx % 2 === 0;
                 return (
@@ -112,21 +112,14 @@ export default function Education() {
                   >
                     {/* Node marker */}
                     <div
-                      className={`absolute left-3 sm:left-6 md:left-1/2 -translate-x-1/2 flex items-center justify-center w-8 sm:w-10 h-8 sm:h-10 rounded-full bg-gradient-to-br ${milestone.color} text-white shadow-lg border-2 border-white dark:border-slate-950 z-10 hover:scale-110 transition-transform duration-300`}
+                      className={`absolute left-0 sm:left-1 md:left-1/2 md:-translate-x-1/2 flex items-center justify-center w-7 sm:w-8 md:w-10 h-7 sm:h-8 md:h-10 rounded-full bg-gradient-to-br ${milestone.color} text-white shadow-lg border-2 border-white dark:border-slate-950 z-10 hover:scale-110 transition-transform duration-300 -translate-x-[13px] sm:-translate-x-[16px] md:translate-x-0`}
                     >
                       {milestone.icon}
                     </div>
 
-                    {/* Year badge on opposite side */}
-                    <div
-                      className={`hidden md:flex absolute left-1/2 -translate-x-1/2 ${
-                        isEven ? "ml-[70px]" : "mr-[70px]"
-                      } -top-6`}
-                    />
-
                     {/* Card */}
                     <div
-                      className={`w-full md:w-[calc(50%-2rem)] ml-12 sm:ml-16 md:ml-0 ${
+                      className={`w-full md:w-[calc(50%-2rem)] pt-1 pl-10 sm:pl-12 md:pl-0 md:pt-0 ${
                         isEven ? "md:pr-8" : "md:pl-8"
                       }`}
                     >
@@ -135,36 +128,35 @@ export default function Education() {
                         whileInView={{ opacity: 1, y: 0, x: 0 }}
                         viewport={{ once: true, margin: "-80px" }}
                         transition={{ duration: 0.6, delay: idx * 0.1 }}
-                        className="glass-card p-3 sm:p-4 md:p-6 rounded-2xl border border-slate-200/50 dark:border-slate-800/40 shadow-md hover:border-lab-cyan/40 hover:shadow-lg transition-all duration-300 relative group"
+                        className="glass-card p-3 sm:p-4 md:p-6 rounded-xl sm:rounded-2xl border border-slate-200/50 dark:border-slate-800/40 shadow-md hover:border-lab-cyan/40 hover:shadow-lg transition-all duration-300 relative group"
                       >
                         {/* Type badge */}
-                        <div className={`absolute top-3 right-3 sm:top-4 sm:right-4 px-2 sm:px-2.5 py-0.5 rounded-md bg-gradient-to-r ${milestone.color} bg-opacity-10 font-space text-[9px] sm:text-[10px] font-bold text-white`}
+                        <div className={`absolute top-2 sm:top-3 right-2 sm:right-3 px-1.5 sm:px-2.5 py-0.5 rounded-md bg-gradient-to-r ${milestone.color} bg-opacity-10 font-space text-[8px] sm:text-[10px] font-bold text-white`}
                           style={{ background: `linear-gradient(135deg, rgba(25,118,210,0.15), rgba(79,195,247,0.15))` }}
                         >
                           <span className="text-lab-blue dark:text-lab-cyan">{milestone.type}</span>
                         </div>
 
-                        <span className="font-space text-[10px] sm:text-xs font-bold text-lab-cyan dark:text-lab-green block mb-1">
+                        <span className="font-space text-[9px] sm:text-xs font-bold text-lab-cyan dark:text-lab-green block mb-1">
                           📅 {milestone.year}
                         </span>
 
-                        <h3 className="text-base sm:text-lg font-poppins font-bold text-primary-navy dark:text-soft-white group-hover:text-lab-blue dark:group-hover:text-lab-cyan transition-colors duration-300 pr-16">
+                        <h3 className="text-sm sm:text-base md:text-lg font-poppins font-bold text-primary-navy dark:text-soft-white group-hover:text-lab-blue dark:group-hover:text-lab-cyan transition-colors duration-300 pr-14 sm:pr-16">
                           {milestone.degree}
                         </h3>
 
-                        <h4 className="text-[11px] sm:text-sm font-semibold text-primary-navy/70 dark:text-soft-white/60 mt-1">
+                        <h4 className="text-[10px] sm:text-xs md:text-sm font-semibold text-primary-navy/70 dark:text-soft-white/60 mt-1">
                           {milestone.institution}{" "}
-                          <span className="text-primary-navy/35 dark:text-soft-white/35">·</span>{" "}
-                          {milestone.location}
+                          <span className="text-primary-navy/35 dark:text-soft-white/35">·</span> {milestone.location}
                         </h4>
 
-                        <p className="text-[11px] sm:text-sm text-primary-navy/60 dark:text-soft-white/55 mt-2 leading-relaxed">
+                        <p className="text-[10px] sm:text-xs md:text-sm text-primary-navy/60 dark:text-soft-white/55 mt-2 leading-relaxed">
                           {milestone.details}
                         </p>
 
                         {/* Score bar */}
-                        <div className="flex items-center gap-2 sm:gap-3 mt-3 sm:mt-4 pt-2 sm:pt-3 border-t border-slate-200/30 dark:border-slate-800/30">
-                          <div className="flex-1 h-2.5 bg-slate-100 dark:bg-slate-900 rounded-full overflow-hidden">
+                        <div className="flex items-center gap-2 mt-2 sm:mt-3 md:mt-4 pt-2 sm:pt-3 border-t border-slate-200/30 dark:border-slate-800/30">
+                          <div className="flex-1 h-2 sm:h-2.5 bg-slate-100 dark:bg-slate-900 rounded-full overflow-hidden">
                             <motion.div
                               className="h-full bg-gradient-to-r from-lab-blue to-lab-cyan rounded-full"
                               initial={{ width: 0 }}
@@ -180,7 +172,7 @@ export default function Education() {
                               transition={{ duration: 1, ease: "easeOut", delay: 0.3 }}
                             />
                           </div>
-                          <span className="font-space text-[9px] sm:text-xs font-extrabold text-primary-navy dark:text-soft-white whitespace-nowrap">
+                          <span className="font-space text-[8px] sm:text-[9px] md:text-xs font-extrabold text-primary-navy dark:text-soft-white whitespace-nowrap">
                             {milestone.stats}
                           </span>
                         </div>
