@@ -25,6 +25,7 @@ export const metadata: Metadata = {
   description: "Welcome to the premium interactive chemistry portfolio of Nandana K.S. Explore laboratory analysis, research projects, academic achievements, and scientific innovation.",
   keywords: "Nandana K.S, Chemistry, MSc Chemistry, Portfolio, Research, Laboratory Analyst, St. Xavier's, Aluva, Alumnus, Analytical Chemistry",
   authors: [{ name: "Nandana K.S" }],
+  viewport: "width=device-width, initial-scale=1.0, viewport-fit=cover",
   openGraph: {
     title: "Nandana K.S | Integrated MSc Chemistry Student",
     description: "Young scientist and researcher portfolio focusing on laboratory expertise, analytical chemistry, and chemical safety.",

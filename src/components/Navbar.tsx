@@ -48,30 +48,33 @@ export default function Navbar() {
   return (
     <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled ? "glass-nav py-3" : "bg-transparent py-5"
+        scrolled ? "glass-nav py-2 sm:py-3" : "bg-transparent py-3 sm:py-5"
       }`}
     >
-      <div className="max-w-7xl mx-auto px-6 md:px-8">
+      <div className="max-w-7xl mx-auto px-3 sm:px-6 md:px-8">
         <div className="flex items-center justify-between">
           {/* Logo / Personal Brand */}
           <a
             href="#home"
-            className="flex items-center gap-2 group font-space text-lg font-bold tracking-wider text-primary-navy dark:text-soft-white"
+            className="flex items-center gap-1.5 sm:gap-2 group font-space text-sm sm:text-lg font-bold tracking-wider text-primary-navy dark:text-soft-white"
           >
-            <Atom className="w-6 h-6 text-lab-blue dark:text-lab-cyan animate-spin-slow group-hover:rotate-180 transition-transform duration-700" />
-            <span>
+            <Atom className="w-5 h-5 sm:w-6 sm:h-6 text-lab-blue dark:text-lab-cyan animate-spin-slow group-hover:rotate-180 transition-transform duration-700" />
+            <span className="hidden xs:inline">
               NANDANA<span className="text-lab-blue dark:text-lab-cyan">.KS</span>
+            </span>
+            <span className="xs:hidden text-xs">
+              NK<span className="text-lab-blue dark:text-lab-cyan">.KS</span>
             </span>
           </a>
 
           {/* Desktop Nav Links */}
-          <div className="hidden lg:flex items-center gap-6">
-            <div className="flex items-center gap-1.5 p-1 rounded-full bg-white/10 dark:bg-slate-900/30 border border-white/10">
+          <div className="hidden md:flex items-center gap-3 lg:gap-6">
+            <div className="flex items-center gap-1 md:gap-1.5 p-1 rounded-full bg-white/10 dark:bg-slate-900/30 border border-white/10">
               {navLinks.map((link) => (
                 <a
                   key={link.name}
                   href={link.href}
-                  className={`px-4 py-1.5 rounded-full text-xs font-semibold tracking-wide transition-all duration-300 ${
+                  className={`px-2 md:px-4 py-1 md:py-1.5 rounded-full text-xs font-semibold tracking-wide transition-all duration-300 ${
                     activeSection === link.href.slice(1)
                       ? "bg-linear-to-r from-lab-blue to-lab-cyan text-white shadow-md shadow-lab-blue/20"
                       : "text-primary-navy/70 dark:text-soft-white/70 hover:text-lab-blue dark:hover:text-lab-cyan hover:bg-slate-100/10"
@@ -100,11 +103,11 @@ export default function Navbar() {
 
       {/* Mobile Drawer */}
       <div
-        className={`fixed inset-y-0 right-0 w-64 z-40 bg-white/95 dark:bg-slate-950/95 backdrop-blur-lg border-l border-slate-200/50 dark:border-slate-800/50 shadow-2xl transition-transform duration-300 flex flex-col p-6 lg:hidden ${
+        className={`fixed inset-y-0 right-0 w-56 sm:w-64 z-40 bg-white/95 dark:bg-slate-950/95 backdrop-blur-lg border-l border-slate-200/50 dark:border-slate-800/50 shadow-2xl transition-transform duration-300 flex flex-col p-4 sm:p-6 lg:hidden overflow-y-auto ${
           isOpen ? "translate-x-0" : "translate-x-full"
         }`}
       >
-        <div className="flex justify-end mb-8">
+        <div className="flex justify-end mb-6 sm:mb-8">
           <button
             onClick={() => setIsOpen(false)}
             className="p-1 rounded-md text-primary-navy dark:text-soft-white"
@@ -113,13 +116,13 @@ export default function Navbar() {
           </button>
         </div>
 
-        <div className="flex flex-col gap-4">
+        <div className="flex flex-col gap-2 sm:gap-4">
           {navLinks.map((link) => (
             <a
               key={link.name}
               href={link.href}
               onClick={() => setIsOpen(false)}
-              className={`px-4 py-2.5 rounded-lg text-sm font-semibold tracking-wide transition-all duration-300 ${
+              className={`px-3 sm:px-4 py-2 sm:py-2.5 rounded-lg text-xs sm:text-sm font-semibold tracking-wide transition-all duration-300 ${
                 activeSection === link.href.slice(1)
                   ? "bg-linear-to-r from-lab-blue to-lab-cyan text-white"
                   : "text-primary-navy/80 dark:text-soft-white/80 hover:text-lab-blue dark:hover:text-lab-cyan hover:bg-slate-100/10"
